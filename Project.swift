@@ -24,6 +24,12 @@ import MyPlugin
 let localHelper = LocalHelper(name: "MyPlugin")
 
 // Creates our project using a helper function defined in ProjectDescriptionHelpers
+let project0 = Project.app(name: "MyApp",
+                          destinations: .iOS,
+                          additionalTargets: ["MyAppUI"]
+    )
+
+
 let project = Project(name: "MyApp",
                       organizationName: "tiost.io",
                       targets: [
@@ -31,12 +37,25 @@ let project = Project(name: "MyApp",
                                destinations: [.iPhone],
                                product: .app,
                                bundleId: "io.tuist.MyApp",
-                               deploymentTargets: .iOS("13.0"),
+                               deploymentTargets: .iOS("14.0"),
                                infoPlist: .default,
-                               sources: ["Targets/MyApp/Sources/**"],
+                               sources: ["Targets/MyApp/Sources/**",
+                                         "Targets/MyAppUI/Sources/**"],
                                dependencies: [
-                                .external(name: "RatingPackage",condition: .none)
+                                .external(name: "Rating",condition: .none)
+                               ]
+                              ),
+                        Target(name: "MyAppUI",
+                               destinations: [.iPhone],
+                               product: .app,
+                               bundleId: "io.tuist.MyApp",
+                               deploymentTargets: .iOS("14.0"),
+                               infoPlist: .default,
+                               sources: ["Targets/MyAppUI/Sources/**"],
+                               dependencies: [
+                                .external(name: "Rating",condition: .none)
                                ]
                               )
+
                         ]
                       )

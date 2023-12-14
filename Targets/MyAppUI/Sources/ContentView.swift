@@ -1,17 +1,25 @@
 import SwiftUI
+import Rating
 
 public struct ContentView: View {
-    public init() {}
+    public init(rating: Int) {
+        self.rating = rating
+    }
+    
+    @State var rating: Int
 
     public var body: some View {
-        Text("Hello, Worlds!")
-            .padding()
+        VStack {
+            Rating(currentRating: $rating, color: .red,ratingImage: .wineglass)
+            Text("Fluminense")
+                .padding()
+        }
     }
 }
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(rating: 4)
     }
 }
