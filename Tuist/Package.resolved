@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "rating",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marciomigueiscognizant/rating",
+      "state" : {
+        "revision" : "2ab33e013ea73d125cb0083209ab59bde9e6f4f9",
+        "version" : "1.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}
