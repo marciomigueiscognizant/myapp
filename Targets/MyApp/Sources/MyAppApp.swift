@@ -5,7 +5,7 @@ import MyAppUI
 struct MyAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(rating: 0)
+            ContentView(rating: 1)
         }
     }
 }
